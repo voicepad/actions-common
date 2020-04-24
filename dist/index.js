@@ -3732,6 +3732,11 @@ const exec = __webpack_require__(986);
 const common = __webpack_require__(299);
 const _ = __webpack_require__(557);
 
+// Default file names
+let jsonReportName = 'report_json.json';
+let mdReportName = 'report_md.md';
+let htmlReportName = 'report_html.html';
+
 async function run() {
 
     try {
@@ -3750,7 +3755,7 @@ async function run() {
 
         let plugins = [];
         if (rulesFileLocation) {
-            plugins = await actionHelper.processLineByLine(`${workspace}/${rulesFileLocation}`);
+            plugins = await common.helper.processLineByLine(`${workspace}/${rulesFileLocation}`);
         }
 
         let command = (`docker run --user root -v ${workspace}:/zap/wrk/:rw --network="host" ` +
@@ -3765,7 +3770,7 @@ async function run() {
         } catch (err) {
             core.setFailed('The ZAP Baseline scan has failed, starting to analyze the alerts. err: ' + err.toString());
         }
-        await common.processReport(token, workspace, plugins, currentRunnerID, issueTitle, repoName);
+        await common.main.processReport(token, workspace, plugins, currentRunnerID, issueTitle, repoName);
     } catch (error) {
         core.setFailed(error.message);
     }
@@ -17820,7 +17825,10 @@ let actionCommon = {
 };
 
 
-module.exports = actionCommon;
+module.exports = {
+    main: actionCommon,
+    helper: actionHelper
+};
 
 
 /***/ }),
