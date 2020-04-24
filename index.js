@@ -1,11 +1,7 @@
 const core = require('@actions/core');
 const exec = require('@actions/exec');
-const fs = require('fs');
-const github = require('@actions/github');
-const common = require(' actions-common-scans');
+const common = require('actions-common-scans');
 const _ = require('lodash');
-
-const actionHelper = require('./action-helper');
 
 async function run() {
 
