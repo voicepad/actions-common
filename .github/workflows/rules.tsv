@@ -1,0 +1,6 @@
+10027	IGNORE	(Information Disclosure - Suspicious Comments)
+10011	IGNORE	(Cookie Without Secure Flag)
+2	IGNORE	(Private IP Disclosure)
+90033	IGNORE	(Loosely Scoped Cookie)
+10108	IGNORE	(Reverse Tabnabbing)
+10062	IGNORE	(PII Scanner)
