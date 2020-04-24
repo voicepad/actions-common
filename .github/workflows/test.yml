@@ -15,3 +15,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           target: 'https://www.example.com'
           rules_file_name: '.github/workflows/rules.tsv'
+          issue_title: 'custom security scanning'
